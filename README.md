@@ -73,6 +73,24 @@ Committed, not shipped. Sabre was named preferred NDC IT technology provider on 
 
 In the Australian market the switching-cost story does not run through the airlines. Virgin Australia and Qantas are a duopoly on inventory nobody else can supply, and neither publishes an interface, so there is nothing to lock into beyond the seats. It runs through hospitality: SiteMinder, built in Sydney, publishes five documented integration APIs on OpenTravel schemas and occupies between hotels and every OTA exactly the position the GDS holds in aviation. The difference is that SiteMinder's lock-in is architectural and inspectable; Virgin Australia's is contractual and invisible.
 
+## Artifacts
+
+Because there is no specification to derive from, this repo carries only what could be
+probed or honestly generated. Each file records verified absence as data, with HTTP status.
+
+| Artifact | What it records |
+| --- | --- |
+| `well-known/virgin-australia-well-known.yml` | Every `/.well-known/` document (security.txt, openid-configuration, oauth-authorization-server, oauth-protected-resource, api-catalog, ai-plugin.json) plus `/llms.txt`, probed across all four reachable hosts on 2026-07-28. All 404. `trust.`, `security.`, `help.` and `status.virginaustralia.com` are NXDOMAIN. No `WellKnown` pointer is wired, because nothing is there. |
+| `conformance/virgin-australia-conformance.yml` | Standards posture. Virgin Australia *consumes* IATA EDIFACT, BSP and industry codes through the GDS; it *publishes* no interface standard. NDC is announced via Sabre, not shipped. OpenAPI, AsyncAPI, GraphQL, OAuth 2.0, OIDC, RFC 9457, RFC 9116 and RFC 9727 all absent. No compliance certification published, so no `Compliance` pointer. |
+| `security/virgin-australia-domain-security.yml` | TLS, HSTS, DNSSEC, CAA, SPF and DMARC for `www.virginaustralia.com`, `www.velocityfrequentflyer.com` and `api.velocityfrequentflyer.com`. Both domains: DMARC `p=reject`, SPF present, no DNSSEC, no CAA. `api.velocityfrequentflyer.com` serves TLS with HSTS but 404s everywhere. |
+| `llms/virgin-australia-llms.txt` | Generated (Virgin Australia's own `/llms.txt` is 404 on every host) so an agent reading this company gets the honest answer — no API — instead of hallucinating one. |
+
+Deliberately **not** created, because the underlying thing does not exist: `openapi/`, `asyncapi/`,
+`graphql/`, `packages/` (no first-party library on npm, PyPI or any registry; no GitHub org),
+`mcp/`, `skills/`, `scopes/`, `authentication/`, `errors/`, `overlays/`, `data-model/`,
+`sandbox/`, `cli/`, `components/`, `changelog/`, `lifecycle/`, `grpc/`,
+`security/virgin-australia-vulnerability-disclosure.yml` and `security/virgin-australia-trust-center.yml`.
+
 ## Maintainers
 
 - Kin Lane — kin@apievangelist.com

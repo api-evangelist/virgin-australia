@@ -51,6 +51,12 @@ modified: '2026-07-28'
 specificationVersion: '0.19'
 apis: []
 common:
+  - type: DomainSecurity
+    url: security/virgin-australia-domain-security.yml
+  - type: Conformance
+    url: conformance/virgin-australia-conformance.yml
+  - type: LLMsTxt
+    url: llms/virgin-australia-llms.txt
   - type: Website
     url: https://www.virginaustralia.com/
   - type: About
@@ -79,6 +85,10 @@ common:
     url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/policies-and-guides/
   - type: Login
     url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/agents-corporate-log-in/
+  - type: Support
+    url: https://www.virginaustralia.com/au/en/help/contact-us/
+  - type: HelpCenter
+    url: https://www.virginaustralia.com/au/en/help/
   - type: LinkedIn
     url: https://www.linkedin.com/company/virgin-australia
 maintainers:

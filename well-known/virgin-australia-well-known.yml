@@ -1,0 +1,110 @@
+generated: '2026-07-28'
+method: searched
+source: live probes of every Virgin Australia and Velocity Frequent Flyer host
+result: none
+summary: >-
+  Virgin Australia publishes no /.well-known/ discovery surface. Every RFC 8615
+  registered document was probed on 2026-07-28 across all four reachable hosts
+  (www.virginaustralia.com, velocityfrequentflyer.com, www.velocityfrequentflyer.com,
+  api.velocityfrequentflyer.com) and every one returned 404. There is no
+  security.txt (RFC 9116), no OIDC discovery document, no RFC 8414 authorization
+  server metadata, no RFC 9727 api-catalog, and no ai-plugin.json. /llms.txt is
+  404 on every host as well. trust.virginaustralia.com, security.virginaustralia.com,
+  help.virginaustralia.com and status.virginaustralia.com do not resolve (NXDOMAIN).
+  Recorded as verified absence — no WellKnown, APICatalog or SecurityTxt pointer is
+  wired into apis.yml because none of these documents exists.
+hosts:
+- host: https://www.virginaustralia.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://velocityfrequentflyer.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://www.velocityfrequentflyer.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://api.velocityfrequentflyer.com
+  note: >-
+    Host resolves and serves TLS. Root and every discovery path return 404.
+    velocityfrequentflyer.com/robots.txt disallows /api/* and /data/*, so an
+    internal JSON surface exists behind this host, but nothing about it is
+    documented or offered to third parties.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /swagger.json
+    status: 404
+  - path: /v1/openapi.json
+    status: 404
+  - path: /api-docs
+    status: 404
+  - path: /docs
+    status: 404
+  - path: /graphql
+    status: 404
+subdomains_probed:
+- host: trust.virginaustralia.com
+  status: 0
+  note: NXDOMAIN — no trust center.
+- host: security.virginaustralia.com
+  status: 0
+  note: NXDOMAIN — no security/disclosure microsite.
+- host: help.virginaustralia.com
+  status: 0
+  note: NXDOMAIN — help content lives at /au/en/help/ on the main site.
+- host: status.virginaustralia.com
+  status: 0
+  note: NXDOMAIN — no status page.

@@ -1,0 +1,117 @@
+generated: '2026-07-28'
+method: derived
+source: review.yml (2026-07-28 surface probe) + live discovery probes 2026-07-28
+summary: >-
+  Virgin Australia conforms to no published machine-readable API standard. The
+  standards that genuinely govern its integrations are airline-industry
+  distribution standards it CONSUMES through intermediaries (IATA EDIFACT via
+  Amadeus, IATA BSP for settlement, IATA airline/airport/plating codes), not
+  interface standards it PUBLISHES. IATA NDC is committed via an IT provider
+  (Sabre, named preferred NDC IT technology provider 2023-10-31) but no Virgin
+  Australia NDC endpoint, schema version or certification level is published, and
+  a reseller (Duffel) confirms live access is via Travelport GDS. No OpenAPI,
+  AsyncAPI, GraphQL, OAuth 2.0, OpenID Connect, RFC 9457 or RFC 9116 surface was
+  found on any host. No compliance certification program (SOC 2, ISO 27001, PCI
+  DSS) is published, so no Compliance pointer is wired.
+standards:
+- id: openapi
+  name: OpenAPI Specification
+  conforms: false
+  evidence: >-
+    /openapi.json, /swagger.json, /v1/openapi.json, /api-docs and /docs return 404
+    on www.virginaustralia.com and api.velocityfrequentflyer.com (probed 2026-07-28).
+- id: asyncapi
+  name: AsyncAPI
+  conforms: false
+  evidence: No event, streaming or webhook surface is published.
+- id: graphql
+  name: GraphQL
+  conforms: false
+  evidence: api.velocityfrequentflyer.com/graphql returns 404.
+- id: oauth2
+  name: OAuth 2.0
+  conforms: false
+  evidence: >-
+    /.well-known/oauth-authorization-server and /.well-known/oauth-protected-resource
+    return 404 on every host. No OAuth documentation exists.
+- id: oidc
+  name: OpenID Connect
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on every host.
+- id: rfc9457-problem-details
+  name: RFC 9457 Problem Details for HTTP APIs
+  conforms: false
+  evidence: No API and no documented error envelope.
+- id: rfc9116-security-txt
+  name: RFC 9116 security.txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on all four hosts.
+- id: rfc9727-api-catalog
+  name: RFC 9727 /.well-known/api-catalog
+  conforms: false
+  evidence: /.well-known/api-catalog returns 404 on all four hosts.
+- id: iata-ndc
+  name: IATA New Distribution Capability
+  conforms: false
+  status: announced-via-it-provider-not-published
+  evidence: >-
+    Sabre press release 2023-10-31 — "Virgin Australia selects Sabre as its
+    preferred NDC IT technology provider" to power its "future" NDC connection.
+    No schema version stated, no certification level claimed, no endpoint
+    published. Amadeus multi-year agreement covers content "through EDIFACT and,
+    in the future, NDC channels." Duffel states it reaches Virgin Australia
+    content "through Travelport, a global distribution system."
+- id: iata-edifact
+  name: IATA EDIFACT airline distribution messaging
+  conforms: true
+  role: consumed-via-intermediary
+  evidence: >-
+    Amadeus agreement gives advisors Virgin Australia schedules, fares, seat maps
+    and ancillaries through EDIFACT channels. This is an interchange Virgin
+    Australia participates in via the GDS, not a contract it publishes.
+- id: iata-bsp
+  name: IATA Billing and Settlement Plan
+  conforms: true
+  role: contractually-required
+  evidence: >-
+    Travel Agent Main Agreement Part E clause 2.a — "You must have GDS access for
+    BSP Sales."
+- id: iata-codes
+  name: IATA/ICAO airline, airport and plating codes
+  conforms: true
+  role: industry-identifier
+  evidence: >-
+    IATA designator VA, ICAO designator VOZ, 3-digit plating code 795 (cited in
+    the Payment Surcharge Policy as "Virgin Australia 795 ticket stock"), IATA
+    3-letter airport codes and 6-character PNR record locators.
+- id: opentravel
+  name: OpenTravel Alliance / OTA schemas
+  conforms: false
+  evidence: No OpenTravel reference found anywhere on virginaustralia.com.
+- id: soc2
+  name: SOC 2
+  conforms: unknown
+  evidence: >-
+    No trust center or compliance page published. trust.virginaustralia.com and
+    security.virginaustralia.com do not resolve; probe-security-programs.py
+    returned trust=none on 2026-07-28.
+- id: iso-27001
+  name: ISO/IEC 27001
+  conforms: unknown
+  evidence: No certification is published on any Virgin Australia surface.
+- id: pci-dss
+  name: PCI DSS
+  conforms: unknown
+  evidence: >-
+    Virgin Australia takes card payments and publishes a Payment Surcharge Policy,
+    but makes no public PCI DSS attestation.
+- id: australian-privacy-principles
+  name: Privacy Act 1988 (Cth) / Australian Privacy Principles
+  conforms: true
+  role: statutory-obligation
+  evidence: >-
+    Privacy policy states "You have a right to request access to or correction of
+    your personal information held by us," addressed to privacy@virginaustralia.com.
+    A portability right is offered only to EEA and UK residents under GDPR
+    (privacy policy section 14). No implementing mechanism, format or endpoint is
+    published for either right.
