@@ -1,0 +1,86 @@
+aid: virgin-australia
+url: https://raw.githubusercontent.com/api-evangelist/virgin-australia/refs/heads/main/apis.yml
+name: Virgin Australia
+kind: company
+humanURL: https://www.virginaustralia.com/
+description: >-
+  Virgin Australia (IATA code VA, ASX:VGN) is Australia's second-largest airline group, founded in 2000
+  and headquartered in Brisbane, operating a domestic and short-haul international network alongside
+  charter and cargo services with more than 8,000 team members and the 13-million-member Velocity
+  Frequent Flyer loyalty program. It sits on the airline side of a concentrated Australian duopoly with
+  Qantas, and reaches travel agents and travel management companies almost entirely through
+  GDS intermediation — Amadeus, Sabre and Travelport/Galileo — rather than through any direct
+  machine interface of its own. Virgin Australia selected Sabre as its preferred NDC IT technology
+  provider in October 2023 and renewed a multi-year Amadeus distribution agreement covering EDIFACT
+  today and NDC in future, but as of July 2026 no Virgin Australia NDC endpoint, developer portal or
+  API documentation is published anywhere on virginaustralia.com. Its API posture is honestly stated
+  as none-published: developer.virginaustralia.com, developers., api., apis. and docs. subdomains do
+  not resolve; /developers, /api, /api-docs, /openapi.json and /swagger.json all return 404; and the
+  only partner surface is the Agency Hub, whose Travel Agent Main Agreement requires current IATA or
+  ATIS accreditation, GDS access for BSP sales, and Virgin Australia's absolute discretion to approve
+  an account. The one genuinely public programmatic-adjacent surface is the Virgin Australia app in
+  ChatGPT, launched 10 June 2026 for flight and Velocity Reward Seat search only — it cannot book,
+  amend, cancel or take payment, and its underlying interface is not documented.
+accessModel:
+  pricing: unknown
+  onboarding: approval
+  trial: false
+  try_now: false
+  public: false
+  label: No public API · Accredited travel agents only
+  confidence: high
+  source:
+    - agency-hub
+    - travel-agent-main-agreement
+  generated: '2026-07-28'
+  method: manual
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+  - Travel
+  - Australia
+  - Aviation
+  - Airline
+  - Distribution
+  - GDS
+  - NDC
+  - Booking
+  - Loyalty
+  - Corporate Travel
+created: '2026-07-28'
+modified: '2026-07-28'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://www.virginaustralia.com/
+  - type: About
+    url: https://www.virginaustralia.com/au/en/about-us/
+  - type: Blog
+    url: https://www.virginaustralia.com/au/en/newsroom/
+  - type: PartnerPortal
+    url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/
+  - type: TermsOfService
+    url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/travel-agent-main-agreement/
+  - type: TermsOfService
+    url: https://www.virginaustralia.com/au/en/about-us/policies/legal/terms-of-use/
+  - type: TermsOfService
+    url: https://www.virginaustralia.com/au/en/about-us/policies/legal/terms-of-use/chatgpt-app/
+  - type: Privacy
+    url: https://www.virginaustralia.com/au/en/about-us/policies/privacy/privacy-policy/
+  - type: Legal
+    url: https://www.virginaustralia.com/au/en/about-us/policies/legal/conditions-of-carriage/
+  - type: Onboarding
+    url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/bsp-ticketing-authority-application/
+  - type: Onboarding
+    url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/application-for-virgin-australia-plating-authority-for-arc-agent/
+  - type: Documentation
+    url: https://www.virginaustralia.com/au/en/fly-for-business/business-flyer/travel-trade/agent-faqs/
+  - type: Documentation
+    url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/policies-and-guides/
+  - type: Login
+    url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/agents-corporate-log-in/
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/virgin-australia
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

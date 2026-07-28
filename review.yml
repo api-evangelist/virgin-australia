@@ -1,0 +1,434 @@
+aid: virgin-australia
+name: Virgin Australia
+review:
+  question: Does Virgin Australia publish a public developer portal, API documentation, or an NDC endpoint — and what would it cost a customer to leave?
+  answer: false
+  date: '2026-07-28'
+  reviewer: API Evangelist
+  scope: >-
+    Bootstrap identity + honest public-API + spec harvest for the Australian
+    travel & aviation seam. Consumer surface and distribution surface assessed
+    separately and not conflated.
+findings:
+  summary: |
+    Virgin Australia publishes NO developer portal, NO API reference, NO OpenAPI
+    or other machine-readable contract, and NO NDC endpoint. Every candidate host
+    and path was probed on 2026-07-28 and every one either failed DNS resolution
+    or returned 404 (statuses recorded below). The only partner surface is the
+    Agency Hub, a human-readable trade site whose "technical integration" is not
+    an API at all — it is GDS connectivity. The Frequently Asked Questions for
+    Travel Agents documents cryptic GDS entry formats (Amadeus, Galileo, Sabre)
+    and a Virgin Australia account code, which is the actual integration contract.
+
+    Two surfaces, kept distinct:
+
+    CONSUMER SURFACE — no public API. Flight status, check-in, booking management
+    and Velocity loyalty are delivered through virginaustralia.com, the Virgin
+    Australia mobile app, and the Velocity Frequent Flyer app. velocityfrequentflyer.com
+    /robots.txt explicitly disallows /api/* and /data/*, confirming an internal-only
+    JSON surface with no published documentation. api.velocityfrequentflyer.com
+    resolves but returns 404 at root with no documentation anywhere. The one
+    genuinely public, genuinely novel surface is the Virgin Australia app in
+    ChatGPT (launched 10 June 2026, an Australian airline first), which searches
+    cash fares, Points + Pay and Velocity Reward Seats — and whose own terms state
+    it does "not process payments; create, amend or cancel bookings; confirm final
+    pricing, fare availability or fare conditions; or make binding commitments."
+    Its underlying interface is not documented and is not offered to third parties.
+
+    DISTRIBUTION SURFACE — GDS-intermediated, not NDC-direct. Virgin Australia
+    selected Sabre as its preferred NDC IT technology provider on 31 October 2023
+    ("to power its future New Distribution Capability connection") and extended a
+    multi-year Amadeus agreement covering agency content "through EDIFACT and, in
+    the future, NDC channels." Neither produced a published Virgin Australia NDC
+    endpoint. Duffel — an aggregator that resells airline content — states plainly
+    on its Virgin Australia page: "Currently, we access this airline's content
+    through Travelport, a global distribution system designed for the travel
+    industry." That is the definitive third-party confirmation: as of July 2026 a
+    reseller reaching Virgin Australia reaches it through a GDS, not through NDC.
+  surfacesProbed:
+    - url: https://www.virginaustralia.com/
+      status: 200
+      note: Adobe Experience Manager marketing site. No developer or API section.
+    - url: https://developer.virginaustralia.com/
+      status: 000
+      note: DNS does not resolve (NXDOMAIN, confirmed twice via curl and WebFetch getaddrinfo ENOTFOUND).
+    - url: https://developers.virginaustralia.com/
+      status: 000
+      note: DNS does not resolve.
+    - url: https://api.virginaustralia.com/
+      status: 000
+      note: DNS does not resolve.
+    - url: https://apis.virginaustralia.com/
+      status: 000
+      note: DNS does not resolve.
+    - url: https://docs.virginaustralia.com/
+      status: 000
+      note: DNS does not resolve.
+    - url: https://portal.virginaustralia.com/
+      status: 200
+      note: >-
+        Resolves to an F5 BIG-IP APM logout page ("BIG-IP logout page",
+        my.logout.php3?errorcode=19). This is a corporate VPN/SSO gateway for
+        staff, NOT a developer portal. Explicitly noindex,nofollow.
+    - url: https://www.virginaustralia.com/developers
+      status: 404
+    - url: https://www.virginaustralia.com/api
+      status: 404
+    - url: https://www.virginaustralia.com/api-docs
+      status: 404
+    - url: https://www.virginaustralia.com/openapi.json
+      status: 404
+    - url: https://www.virginaustralia.com/swagger.json
+      status: 404
+    - url: https://www.virginaustralia.com/api/openapi.json
+      status: 404
+    - url: https://www.virginaustralia.com/v1/openapi.json
+      status: 404
+    - url: https://www.virginaustralia.com/.well-known/openapi.json
+      status: 404
+    - url: https://www.virginaustralia.com/.well-known/security.txt
+      status: 404
+    - url: https://www.virginaustralia.com/.well-known/ai-plugin.json
+      status: 404
+    - url: https://www.virginaustralia.com/llms.txt
+      status: 404
+    - url: https://www.virginaustralia.com/robots.txt
+      status: 200
+      note: >-
+        Lists 10 sitemaps. No Disallow or Allow path referencing api, developer,
+        swagger or openapi.
+    - url: https://www.virginaustralia.com/sitemap_index.xml
+      status: 200
+      note: >-
+        Sitemap index enumerating AU/NZ/US/HK/CN/JP/EU/AE/UK/FEEDS. The AU sitemap
+        was fully enumerated on 2026-07-28 and contains ZERO URLs matching
+        "developer" or "/api". Every agency-hub page it lists is human prose.
+    - url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/
+      status: 200
+      note: >-
+        Agency Hub — the trade partner site. Sections: Agency Essentials, Learning
+        Hub, Business Flyer, Corporate Travel, Velocity, Airline Partners, Group
+        Travel, Charters. No NDC, GDS, API or technical integration content.
+    - url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/travel-agent-main-agreement/
+      status: 200
+      note: The governing commercial contract. See switchingCost.contractualLockIn.
+    - url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/bsp-ticketing-authority-application/
+      status: 200
+    - url: https://www.virginaustralia.com/us/en/travel-info/flying-with-us/agency-hub/application-for-virgin-australia-plating-authority-for-arc-agent/
+      status: 200
+    - url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/agents-corporate-log-in/
+      status: 200
+      note: Partner login only. Not a self-serve developer signup.
+    - url: https://www.virginaustralia.com/au/en/fly-for-business/business-flyer/travel-trade/agent-faqs/
+      status: 200
+      note: >-
+        The single most technical public document. Specifies GDS OSI entry formats
+        and the Virgin Australia account code. See switchingCost.interfaceShape.
+    - url: https://www.virginaustralia.com/au/en/fly-for-business/travel-trade/
+      status: 200
+    - url: https://www.virginaustralia.com/au/en/about-us/policies/legal/terms-of-use/chatgpt-app/
+      status: 200
+      note: Terms of use for the Virgin Australia app in ChatGPT. Search only, no booking.
+    - url: https://www.virginaustralia.com/au/en/about-us/policies/privacy/privacy-policy/
+      status: 200
+    - url: https://www.virginaustralia.com/au/en/newsroom/2026/5/virgin-australia-flight-search-lands-in-chatgpt/
+      status: 200
+    - url: https://www.velocityfrequentflyer.com/
+      status: 200
+    - url: https://www.velocityfrequentflyer.com/robots.txt
+      status: 200
+      note: 'Disallow: /api/* and Disallow: /data/* — internal JSON surface, no public docs.'
+    - url: https://api.velocityfrequentflyer.com/
+      status: 404
+      note: >-
+        Host resolves and serves, root returns 404. No documentation published for
+        this host anywhere. NOT listed as an API — nothing about it is documented.
+    - url: https://developer.velocityfrequentflyer.com/
+      status: 000
+      note: DNS does not resolve.
+    - url: https://api.github.com/orgs/virginaustralia
+      status: 404
+      note: No GitHub organization under that handle.
+  specHarvest:
+    openapi: 0
+    asyncapi: 0
+    graphql: 0
+    postman: 0
+    note: >-
+      Nothing to harvest. No OpenAPI, AsyncAPI, GraphQL schema, Postman collection
+      or any other machine-readable contract is published by Virgin Australia.
+      The openapi/ directory is deliberately omitted rather than created empty.
+  consumerSurface:
+    publicAPI: false
+    channels:
+      - virginaustralia.com booking flow (web)
+      - Virgin Australia mobile app (iOS/Android)
+      - Velocity Frequent Flyer app and web
+      - Virgin Australia app in ChatGPT (launched 2026-06-10, search only)
+    note: >-
+      No flight-status, schedule, loyalty or check-in API is published for
+      developers. Third parties who want Virgin Australia flight status buy it
+      from aggregators (AirLabs, Cirium, FlightAware, OAG) who source it from
+      operational feeds, not from Virgin Australia developer credentials.
+  distributionSurface:
+    model: gds-intermediated
+    gdsPresent:
+      - Amadeus
+      - Sabre
+      - Travelport (Galileo)
+    ndcITProvider: Sabre (selected 2023-10-31 as preferred NDC IT technology provider)
+    ndcEndpointPublished: false
+    ndcCertificationClaimed: false
+    aggregatorEvidence: >-
+      Duffel's Virgin Australia page states "Currently, we access this airline's
+      content through Travelport, a global distribution system designed for the
+      travel industry" — confirming GDS, not NDC, as the live reseller path.
+    surchargeOnGDS: >-
+      No GDS/distribution surcharge is published. Virgin Australia publishes a
+      Payment Surcharge Policy (card surcharge collected as an OB Ticket Fee on
+      795 ticket stock, non-commissionable), which is a payment-method fee, not a
+      channel fee. Do not read this as a GDS surcharge.
+switchingCost:
+  interfaceShape: proprietary-undocumented
+  interfaceShapeEvidence: >-
+    There is no published Virgin Australia interface of any kind — no OpenAPI, no
+    NDC schema version, no SOAP WSDL, no documented REST base URL. The de facto
+    integration contract for the only third parties Virgin Australia transacts
+    with (travel agents) is GDS cryptic-entry syntax plus a Virgin Australia
+    account code, documented in the agent FAQ as: Amadeus "OS VA VACC/insert
+    company's ABN"; Galileo "SI.VAA*VACC/insert company's ABN"; Sabre "30SI VA
+    VACC/insert company's ABN"; and "Account code ACC99 must be included on every
+    ticket to ensure accurate reporting." Each of those three strings is a
+    different, non-interchangeable, GDS-specific dialect wrapping the SAME Virgin
+    Australia semantics — the canonical shape of standard-less distribution. The
+    airline has committed to NDC (Sabre as preferred NDC IT provider, 2023-10-31;
+    Amadeus agreement covering "EDIFACT and, in the future, NDC channels") but as
+    of 2026-07-28 has published nothing implementing it. Classified
+    proprietary-undocumented rather than standard-plus-proprietary precisely
+    because the standard (IATA NDC 21.3 / Offers and Orders) is announced but not
+    shipped, and EDIFACT/GDS cryptic entry is a legacy interchange the airline
+    consumes rather than an open contract it publishes.
+  standardsNamed:
+    - name: IATA NDC (New Distribution Capability)
+      status: announced-via-IT-provider-not-published
+      evidence: >-
+        Sabre press release 2023-10-31 "Virgin Australia selects Sabre as its
+        preferred NDC IT technology provider" — "to power its future New
+        Distribution Capability connection." No schema version stated, no
+        certification level claimed, no endpoint published.
+    - name: IATA EDIFACT (legacy airline distribution messaging)
+      status: in-use-via-Amadeus
+      evidence: >-
+        Amadeus multi-year agreement gives advisors Virgin Australia schedules,
+        fares, seat maps and ancillaries "through EDIFACT and, in the future, NDC
+        channels."
+    - name: IATA BSP (Billing and Settlement Plan)
+      status: in-use-and-contractually-required
+      evidence: Travel Agent Main Agreement Part E clause 2.a "You must have GDS access for BSP Sales."
+    - name: OpenTravel / OTA
+      status: not-referenced
+      evidence: No OpenTravel reference found anywhere on virginaustralia.com.
+    - name: OpenAPI
+      status: not-published
+  secondSource: no-alternative
+  secondSourceEvidence: >-
+    Alternatives explicitly considered and rejected as second sources for the same
+    capability:
+    (1) Qantas/Jetstar — a genuine competitor for Australian domestic seats, but it
+    is different inventory, not the same capability. You cannot buy a Virgin
+    Australia seat from Qantas.
+    (2) Amadeus, Sabre, Travelport — three GDSs that all carry VA content, so an
+    agent CAN switch GDS. But that is a second source for the PIPE, not for the
+    INVENTORY, and switching costs a full re-platform of PCCs, cryptic syntax,
+    mid/back-office and staff retraining.
+    (3) Duffel, Kiwi, Travelfusion and other aggregators — resell VA, but Duffel
+    itself sources VA through Travelport, so they are a thinner wrapper over the
+    same GDS dependency, not an independent route.
+    (4) Codeshare/interline partners (Qatar Airways, Singapore Airlines, United,
+    ANA, Air Canada, Air New Zealand) — can sell VA-operated segments, but only
+    under their own plating and only on partnered routes.
+    For a national carrier's own seat inventory and its own Velocity loyalty
+    currency there is, by construction, no second source. Recording that plainly
+    is the finding: the switching cost of leaving Virgin Australia as a supplier is
+    not an integration cost, it is the loss of ~one third of Australian domestic
+    capacity from your shelf.
+  exitPath: no-export-published
+  exitPathEvidence: >-
+    No export, dump, bulk, reporting or data-portability OPERATION exists, because
+    no API exists. The only portability commitment is prose in the privacy policy:
+    "You have a right to request access to or correction of your personal
+    information held by us," under the Australian Privacy Act 1988 (Cth) and the
+    Australian Privacy Principles, addressed to privacy@virginaustralia.com or
+    Privacy Officer, PO Box 1034, Spring Hill QLD 4004. A stronger right —
+    "transfer your personal information to a third party in a portable format" —
+    is offered ONLY to EEA and UK residents under GDPR (privacy policy section 14),
+    which for an airline whose network is Australian domestic and short-haul
+    international covers a small minority of guests. No implementing mechanism,
+    file format, endpoint or SLA is published for either right. For an agency, the
+    booking record does not exit with you at all: PNRs live in the GDS and the
+    Virgin Australia PSS, and the Travel Agent Main Agreement contemplates removal
+    of ticketing authority, not handover of data.
+  identifierPortability: >-
+    A mix of industry-shared identifiers that DO travel and Virgin-Australia-specific
+    ones that do NOT.
+    PORTABLE (industry standard, recognised by any airline or GDS): IATA airline
+    designator VA; ICAO designator VOZ; IATA 3-digit ticketing/plating code 795
+    (cited in the Payment Surcharge Policy as "Virgin Australia 795 ticket stock");
+    IATA Agency Number and ARC Number ("the unique reference provided by the IATA
+    Airlines Reporting Corporation to you to represent your ARC accreditation");
+    IATA 3-letter airport codes; the 6-character PNR record locator; BSP settlement
+    identifiers.
+    SEMI-PORTABLE (locks you to one GDS, not to the airline): the GDS-allocated PCC
+    (Pseudo City Code), which agents must file with Virgin Australia — changing GDS
+    means a new PCC and re-filing.
+    NOT PORTABLE (Virgin Australia proprietary): the "Virgin Australia Code"
+    (agency account identifier named in the Travel Agent Main Agreement); account
+    code ACC99 required on every corporate-discount ticket; the VACC OSI keyword;
+    the Velocity Frequent Flyer membership number and Velocity Points balance —
+    a closed-loop currency with no export, transfer-out or cash-out route.
+    ALSO PRESENT: the Australian Business Number (ABN), a national government
+    identifier, used to bind corporate bookings to a Business Flyer account.
+  contractualLockIn: >-
+    Published and verifiable, in the Travel Agent Main Agreement at
+    /au/en/travel-info/flying-with-us/agency-hub/travel-agent-main-agreement/
+    (HTTP 200, fetched 2026-07-28). Verbatim terms located:
+    ACCREDITATION — "For all new Australian travel agency account applications, you
+    must maintain a current IATA or ATIS accreditation" (Part C, clause 9).
+    MANDATORY GDS — "You must have GDS access for BSP Sales" (Part E, clause 2.a).
+    That single clause is the lock-in: Virgin Australia contractually REQUIRES its
+    agency channel to hold a GDS relationship. The airline does not merely tolerate
+    intermediation, it mandates it.
+    UNILATERAL REFUSAL — "We reserve the right to refuse in our absolute discretion,
+    an application for an account" (Part A, clause 8).
+    CREDIT ASSESSMENT — "We reserve the right to conduct a third party credit
+    assessment of you and you are obligated to comply with this request"
+    (Part A, clause 9).
+    REVOCATION — Virgin Australia may "remove or suspend the authority granted to
+    you to issue tickets on Virgin Australia's ticketing stock using your IATA
+    Number or ARC Number" on a Default Event or where "your Account is inactive or
+    not utilised for at least 60 days." Sixty days of inactivity terminates your
+    ability to sell the airline — a use-it-or-lose-it clause.
+    COMMISSION — "Base Commission is only payable on the Base Fare of VA marketed
+    and operated flights which have been ticketed" (Part C, clause 3).
+    NOT FOUND — no exclusivity clause, no full-content agreement, no minimum volume
+    commitment, no segment fee and no stated fixed term were located in the
+    published agreement. Recorded as absent rather than inferred.
+    ALSO PUBLISHED — Payment Surcharge Policy v6 (PDF, HTTP 200): card surcharge
+    collected as an OB Ticket Fee on 795 stock, "non-commissionable (as with other
+    taxes and fees)."
+  accessGate: accredited-or-licensed
+  accessGateEvidence: >-
+    A developer cannot get in at all — there is no key to issue. An AGENT gets in
+    by: (1) holding current IATA or ATIS accreditation (or an ARC number in the US,
+    or a TIDS code internationally); (2) holding GDS access and a PCC for BSP
+    sales; (3) applying via the BSP Ticketing Authority Application or the ARC
+    Plating Authority Application; (4) submitting to a third-party credit
+    assessment; (5) being approved at Virgin Australia's absolute discretion; and
+    (6) for corporate fares, additionally registering the agency's "pricing and
+    ticketing PCC, IATA, and applicable GDS" with Virgin Australia and filing
+    account code ACC99 on every ticket. There is no self-serve tier, no sandbox,
+    no free key, no rate-limit table — none of these concepts exist here.
+  distributionModel: gds-intermediated
+  ndcPosture: >-
+    NDC committed, not shipped, and not certified in public. Sabre named preferred
+    NDC IT technology provider 31 October 2023 to power a "future" NDC connection;
+    Amadeus agreement covers agency content via EDIFACT "and, in the future, NDC
+    channels." No Virgin Australia NDC endpoint, no NDC schema version, no IATA NDC
+    certification level and no IATA Airline Retailing Maturity (ARM) index entry
+    was found for Virgin Australia. Duffel confirms live access is via Travelport
+    GDS. As of 2026-07-28: NDC announced via IT provider, no public NDC endpoint,
+    no certification claimed, no GDS surcharge published.
+  marketSeamNote: >-
+    Read against the Australian seam, Virgin Australia is the control case, not the
+    interesting case. The switching-cost story in this market does NOT run through
+    the airlines — VA and Qantas are a duopoly on inventory nobody else can supply,
+    and neither publishes an interface, so there is nothing to lock into beyond the
+    seats themselves. It runs through hospitality: SiteMinder, built in Sydney,
+    publishes five documented integration APIs on OpenTravel schemas at
+    developer.siteminder.com and occupies between hotels and every OTA exactly the
+    position the GDS holds in aviation — the difference being that SiteMinder's
+    lock-in is architectural and inspectable, while Virgin Australia's is
+    contractual and invisible. The lesson for the Kin Score is that a provider with
+    NO published interface can carry MORE switching cost than one with a rich
+    documented API, and the current rubric cannot see that at all.
+sources:
+  - url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/travel-agent-main-agreement/
+    type: TermsOfService
+    status: 200
+    fetched: '2026-07-28'
+    note: IATA/ATIS accreditation, mandatory GDS for BSP, 60-day inactivity revocation, absolute discretion to refuse.
+  - url: https://www.virginaustralia.com/au/en/fly-for-business/business-flyer/travel-trade/agent-faqs/
+    type: Documentation
+    status: 200
+    fetched: '2026-07-28'
+    note: GDS OSI entry formats for Amadeus/Galileo/Sabre; account code ACC99; PCC + IATA filing requirement.
+  - url: https://www.virginaustralia.com/us/en/travel-info/flying-with-us/agency-hub/application-for-virgin-australia-plating-authority-for-arc-agent/
+    type: Onboarding
+    status: 200
+    fetched: '2026-07-28'
+    note: ARC Number definition and plating authority process.
+  - url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/bsp-ticketing-authority-application/
+    type: Onboarding
+    status: 200
+    fetched: '2026-07-28'
+    note: GDS access, PCC, credit assessment, discretionary approval.
+  - url: https://www.virginaustralia.com/content/dam/vaa/docs/agency-hub/Virgin-Australia-Payment-Surcharge-Policy-v6.pdf
+    type: Pricing
+    status: 200
+    fetched: '2026-07-28'
+    note: OB Ticket Fee on 795 ticket stock, non-commissionable. Payment surcharge, not a distribution fee.
+  - url: https://www.virginaustralia.com/au/en/about-us/policies/privacy/privacy-policy/
+    type: Privacy
+    status: 200
+    fetched: '2026-07-28'
+    note: Access/correction right under Privacy Act 1988; portability right EEA/UK only; no mechanism published.
+  - url: https://www.virginaustralia.com/au/en/about-us/policies/legal/terms-of-use/chatgpt-app/
+    type: TermsOfService
+    status: 200
+    fetched: '2026-07-28'
+    note: ChatGPT app is search-only; cannot book, amend, cancel or take payment.
+  - url: https://www.virginaustralia.com/au/en/newsroom/2026/5/virgin-australia-flight-search-lands-in-chatgpt/
+    type: Blog
+    status: 200
+    fetched: '2026-07-28'
+    note: Launch of Virgin Australia app in ChatGPT, 10 June 2026 — first Australian airline.
+  - url: https://www.prnewswire.com/news-releases/virgin-australia-selects-sabre-as-its-preferred-ndc-it-technology-provider-301972338.html
+    type: PressRelease
+    status: 200
+    fetched: '2026-07-28'
+    note: 31 October 2023. Sabre preferred NDC IT technology provider. No VA NDC endpoint or developer portal mentioned.
+  - url: https://duffel.com/flights/airlines/virgin-australia
+    type: ThirdParty
+    status: 200
+    fetched: '2026-07-28'
+    note: '"Currently, we access this airline''s content through Travelport, a global distribution system." GDS, not NDC.'
+  - url: https://www.velocityfrequentflyer.com/robots.txt
+    type: Robots
+    status: 200
+    fetched: '2026-07-28'
+    note: 'Disallow: /api/* and /data/* — internal API surface, undocumented.'
+  - url: https://www.virginaustralia.com/robots.txt
+    type: Robots
+    status: 200
+    fetched: '2026-07-28'
+    note: No developer or API paths referenced.
+  - url: https://www.virginaustralia.com/sitemap_index.xml
+    type: Sitemap
+    status: 200
+    fetched: '2026-07-28'
+    note: AU sitemap fully enumerated — zero developer or /api URLs.
+actions:
+  apisListed: 0
+  openapiHarvested: false
+  specsCount: 0
+  openapiDirectoryCreated: false
+  gated: true
+  portalConfirmed: false
+  reason: |
+    apis[] is deliberately EMPTY. Virgin Australia documents no API, so listing one
+    would be fabrication. The ChatGPT app, the Velocity internal /api/* paths and
+    api.velocityfrequentflyer.com were all considered and all rejected as apis[]
+    entries: none has published documentation, a documented base URL, or a way for
+    a third party to obtain access. They are recorded here in review.yml as
+    observations with HTTP status, which is the honest place for them.
+    No openapi/ directory was created because no specification exists to put in it.
