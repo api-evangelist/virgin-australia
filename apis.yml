@@ -1,5 +1,7 @@
 aid: virgin-australia
 url: https://raw.githubusercontent.com/api-evangelist/virgin-australia/refs/heads/main/apis.yml
+x-api-posture: no-product-api
+x-api-posture-basis: observed
 name: Virgin Australia
 kind: company
 humanURL: https://www.virginaustralia.com/
