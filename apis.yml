@@ -21,6 +21,17 @@ description: >-
   an account. The one genuinely public programmatic-adjacent surface is the Virgin Australia app in
   ChatGPT, launched 10 June 2026 for flight and Velocity Reward Seat search only — it cannot book,
   amend, cancel or take payment, and its underlying interface is not documented.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: approval
