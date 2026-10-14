@@ -1,0 +1,25 @@
+edges:
+- partner_name: Duffel
+  partner: duffel
+  partner_match: aggregator
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: carrier-coverage
+  evidence: https://duffel.com/flights/airlines
+  detected_by: sweep-travel.py
+  first_seen: '2026-10-14'
+  iata_codes:
+  - VA
+  ndc_direct: false
+  content_source:
+  - travelport
+  features_in_production:
+  - baggage allowance
+  - hold order, pay later
+  - offer and order conditions
+generated: '2026-10-14'
+method: searched
+checked:
+- https://duffel.com/flights/airlines
+source: https://duffel.com/flights/airlines
