@@ -1,10 +1,17 @@
 aid: virgin-australia
+
 url: https://raw.githubusercontent.com/api-evangelist/virgin-australia/refs/heads/main/apis.yml
+
 x-api-posture: no-product-api
+
 x-api-posture-basis: observed
+
 name: Virgin Australia
+
 kind: company
+
 humanURL: https://www.virginaustralia.com/
+
 description: >-
   Virgin Australia (IATA code VA, ASX:VGN) is Australia's second-largest airline group, founded in 2000
   and headquartered in Brisbane, operating a domestic and short-haul international network alongside
@@ -23,6 +30,7 @@ description: >-
   an account. The one genuinely public programmatic-adjacent surface is the Virgin Australia app in
   ChatGPT, launched 10 June 2026 for flight and Velocity Reward Seat search only — it cannot book,
   amend, cancel or take payment, and its underlying interface is not documented.
+
 deliveryModel:
   model: saas
   open_source: false
@@ -34,6 +42,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: unknown
   onboarding: approval
@@ -47,7 +56,9 @@ accessModel:
     - travel-agent-main-agreement
   generated: '2026-07-28'
   method: manual
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+
+image: https://www.virginaustralia.com/content/dam/vaa/images/vaa-logo-grey.png/_jcr_content/renditions/cq5dam.web.1280.1280.png
+
 tags:
   - Travel
   - Australia
@@ -59,6 +70,7 @@ tags:
   - Booking
   - Loyalty
   - Corporate Travel
+
 tags_raw:
   - Travel
   - Australia
@@ -70,17 +82,28 @@ tags_raw:
   - Booking
   - Loyalty
   - Corporate Travel
+
 created: '2026-07-28'
-modified: '2026-07-28'
+
+modified: '2026-10-20'
+
 specificationVersion: '0.23'
-apis: []
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+
 common:
+  - type: Hosts
+    url: hosts/virgin-australia-hosts.yml
+  - type: IntegrationEdges
+    url: integrations/virgin-australia-integration-edges.yml
+  - type: Vendors
+    url: vendors/virgin-australia-vendors.yml
   - type: DomainSecurity
     url: security/virgin-australia-domain-security.yml
   - type: Conformance
     url: conformance/virgin-australia-conformance.yml
-  - type: LLMsTxt
-    url: llms/virgin-australia-llms.txt
   - type: Website
     url: https://www.virginaustralia.com/
   - type: About
@@ -104,8 +127,6 @@ common:
   - type: Onboarding
     url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/application-for-virgin-australia-plating-authority-for-arc-agent/
   - type: Documentation
-    url: https://www.virginaustralia.com/au/en/fly-for-business/business-flyer/travel-trade/agent-faqs/
-  - type: Documentation
     url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/policies-and-guides/
   - type: Login
     url: https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/agents-corporate-log-in/
@@ -115,6 +136,33 @@ common:
     url: https://www.virginaustralia.com/au/en/help/
   - type: LinkedIn
     url: https://www.linkedin.com/company/virgin-australia
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+  - type: InvestorRelations
+    url: https://www.virginaustralia.com/au/en/about-us/investor-relations/
+  - type: Careers
+    url: https://www.virginaustralia.com/au/en/about-us/careers/
+  - type: Accessibility
+    url: https://www.virginaustralia.com/au/en/help/accessibility/
+  - type: Twitter
+    url: https://twitter.com/VirginAustralia
+  - type: Instagram
+    url: https://www.instagram.com/virginaustralia/
+
+apis: []
+
+x-coverage:
+  state: covered
+  reason: identity-verified
+  detail: Website and all common[] pointers re-fetched 2026-10-20 with a browser UA; the agent-faqs Documentation pointer returned 404 and was removed; logo taken from the homepage markup.
+  evidence:
+    - url: https://www.virginaustralia.com/
+      status: 200
+    - url: https://www.virginaustralia.com/au/en/fly-for-business/business-flyer/travel-trade/agent-faqs/
+      status: 404
+    - url: https://www.virginaustralia.com/content/dam/vaa/images/vaa-logo-grey.png/_jcr_content/renditions/cq5dam.web.1280.1280.png
+      status: 200
+x-enrichment:
+  date: '2026-10-20'
+  status: enriched
+  artifacts_added: 7
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=anthropic,regulatory=anthropic

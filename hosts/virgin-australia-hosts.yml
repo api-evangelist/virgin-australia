@@ -1,0 +1,159 @@
+generated: '2026-10-20'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 12
+  own: 7
+  other_domain: 3
+  platform: 2
+  roles:
+  - api
+  - community
+  - other
+  - portal
+  - website
+hosts:
+- host: api.instagram.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: instagram.com
+  role: api
+  relation: other-domain
+- host: api.virginaustralia.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: virginaustralia.com
+  role: api
+  relation: own
+- host: businesslogin.virginaustralia.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: virginaustralia.com
+  role: other
+  relation: own
+- host: carhire.virginaustralia.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: virginaustralia.com
+  role: other
+  relation: own
+- host: community.virginaustralia.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: virginaustralia.com
+  role: community
+  relation: own
+- host: covermore.virginaustralia.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: virginaustralia.com
+  role: other
+  relation: own
+- host: developers.instagram.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  - well-known
+  types: []
+  serves: []
+  title: Instagram Platform Overview | Facebook for Developers
+  status: 200
+  registrable_domain: instagram.com
+  role: portal
+  relation: other-domain
+- host: portal.virginaustralia.com
+  found_by:
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  types: []
+  serves:
+  - docs
+  registrable_domain: virginaustralia.com
+  role: other
+  relation: own
+- host: twitter.com
+  found_by:
+  - pointer
+  types:
+  - Twitter
+  serves: []
+  registrable_domain: twitter.com
+  role: other
+  relation: platform
+- host: www.instagram.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - Instagram
+  serves: []
+  registrable_domain: instagram.com
+  role: other
+  relation: other-domain
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform
+- host: www.virginaustralia.com
+  found_by:
+  - pointer
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Website
+  - About
+  - Blog
+  - PartnerPortal
+  - TermsOfService
+  - Privacy
+  - Legal
+  - Onboarding
+  - Documentation
+  - Login
+  - Support
+  - HelpCenter
+  - InvestorRelations
+  - Careers
+  - Accessibility
+  serves:
+  - docs
+  - cdn
+  vendor: akamai
+  registrable_domain: virginaustralia.com
+  role: website
+  relation: own

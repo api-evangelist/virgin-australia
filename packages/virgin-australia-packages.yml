@@ -1,0 +1,9 @@
+generated: '2026-10-20'
+method: none
+name: Virgin Australia packages
+note: >-
+  Checked, nothing there. Virgin Australia publishes no API, developer portal or SDK
+  (no docs host; preflight 2026-10-20 found no contracts and no GitHub org). Registry
+  probes 2026-10-20: registry.npmjs.org/virgin-australia 404, /virginaustralia 404,
+  /velocity-frequent-flyer 404; pypi.org/pypi/<same names>/json 404.
+packages: []

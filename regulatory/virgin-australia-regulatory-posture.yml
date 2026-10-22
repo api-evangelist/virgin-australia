@@ -1,0 +1,86 @@
+generated: '2026-10-20'
+method: searched
+probe: true
+source: https://www.virginaustralia.com/au/en/about-us/policies/privacy/privacy-policy/
+pages_read:
+- {url: 'https://www.virginaustralia.com/au/en/about-us/policies/privacy/privacy-policy/', http_status: 200, fetched: '2026-10-20'}
+- {url: 'https://www.virginaustralia.com/au/en/about-us/policies/legal/terms-of-use/', http_status: 200, fetched: '2026-10-20'}
+- {url: 'https://www.virginaustralia.com/au/en/about-us/policies/legal/terms-of-use/chatgpt-app/', http_status: 200, fetched: '2026-10-20'}
+- {url: 'https://www.virginaustralia.com/au/en/help/accessibility/', http_status: 200, fetched: '2026-10-20'}
+- {url: 'https://www.virginaustralia.com/au/en/travel-info/flying-with-us/agency-hub/travel-agent-main-agreement/', http_status: 200, fetched: '2026-10-20', note: 'pre-flight candidates for data_subject_request and incident_notification on this page were false positives (assignment of contract rights; card-dispute notification), so nothing is recorded from it'}
+signals:
+  data_subject_request:
+    url: https://www.virginaustralia.com/au/en/about-us/policies/privacy/privacy-policy/
+    section: '12. Access and correction requests'
+    channel: privacy@virginaustralia.com (Privacy Officer)
+    stated_sla: 'We aim to respond within a reasonable time – this is usually within one month.'
+    rights_named: [access, correction, deletion (EEA/UK), restriction (EEA/UK), objection to direct marketing (EEA/UK), portability (EEA/UK)]
+    escalation: Office of the Australian Information Commissioner (OAIC); UK or EU member state data protection authority
+    evidence:
+    - source: https://www.virginaustralia.com/au/en/about-us/policies/privacy/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: "You have a right to request access to or correction of your personal information held by us."
+    - source: https://www.virginaustralia.com/au/en/about-us/policies/privacy/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: "However, if you’re an EEA or UK citizen or resident, you may have additional rights, including asking us to: give you details about how we process your personal data delete your personal data restrict our processing of your personal data stop processing your personal data for direct marketing, legitimate or public interests transfer your personal data to a third party in a portable format."
+    - source: https://www.virginaustralia.com/au/en/about-us/policies/privacy/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: "We aim to respond within a reasonable time – this is usually within one month. If you're still unhappy, you can complain to the Office of the Australian Information Commissioner (OAIC)."
+    note: >-
+      Access and correction are stated as rights for everyone; deletion, restriction, objection and portability
+      are offered only to EEA/UK residents. The one-month figure is stated for complaints, not access requests.
+      The policy says it was last updated 13 August 2024.
+  data_retention:
+    url: https://www.virginaustralia.com/au/en/about-us/policies/privacy/privacy-policy/
+    section: 'How long do we keep your personal data'
+    stated_period: none stated
+    evidence:
+    - source: https://www.virginaustralia.com/au/en/about-us/policies/privacy/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: "When we identify retention periods for the personal data we hold, we consider our legal obligations and business needs. This includes the purposes for which we collected the information, as well as any other purposes we’re permitted to use it for."
+    note: A criteria-based retention statement with no specific period, in the EEA/UK section.
+  data_residency:
+    url: https://www.virginaustralia.com/au/en/about-us/policies/privacy/privacy-policy/
+    section: '10. When do we share your personal information overseas?'
+    evidence:
+    - source: https://www.virginaustralia.com/au/en/about-us/policies/privacy/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: "We store some personal information in Australia and some overseas. Sometimes, the third parties we work with are based overseas or need to access, store, or transfer personal information overseas."
+    note: Discloses storage both in Australia and overseas. There is no residency commitment and no fixed list of countries; destinations depend on travel, cargo and partner circumstances.
+  ai_transparency:
+    url: https://www.virginaustralia.com/au/en/about-us/policies/legal/terms-of-use/chatgpt-app/
+    section: '2. AI generated responses'
+    evidence:
+    - source: https://www.virginaustralia.com/au/en/about-us/policies/legal/terms-of-use/chatgpt-app/
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: "2.1 The App uses AI technology. Responses may include generated, summarised or paraphrased content (“Responses”). 2.2 Responses are summaries. Results will vary depending on your prompt."
+    - source: https://www.virginaustralia.com/au/en/about-us/policies/legal/terms-of-use/chatgpt-app/
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: "Responses may not always be accurate, complete, current, available, reliable or suitable; Responses do not constitute binding offers, guarantees, promises or contractual commitments by Virgin Australia"
+    - source: https://www.virginaustralia.com/au/en/about-us/policies/privacy/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: "We may make completely automated decisions on certain matters. For example, the Virgin Australia Group and our Service Providers, Velocity Partners, Airline Partners, Travel Partners, and Marketing Partners may assess existing or potential customers' interest in us and our and related products and services based on your usage and device data."
+    note: >-
+      The ChatGPT App terms say outright that the app's responses are AI-generated and may be inaccurate. The
+      privacy policy separately says it makes fully automated decisions for marketing. Separately, the general
+      Terms of Use ban automated access, including by "artificial intelligence systems ... large language
+      models", without written consent. That is an access restriction and not an AI disclosure, so it is not
+      recorded here as one.
+  accessibility_conformance:
+    url: https://www.virginaustralia.com/au/en/help/accessibility/
+    standard: WCAG
+    level: AA
+    evidence:
+    - source: https://www.virginaustralia.com/au/en/help/accessibility/
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: "Virgin Australia aims to meet conformance level AA of the World Wide Web Consortium’s (W3C) Web Content Accessibility Guidelines (WCAG), which comprise international web accessibility standards."
+    note: This is a stated aim, not a conformance claim. The page gives no WCAG version, and its browser test table still lists Internet Explorer, so it may be out of date.

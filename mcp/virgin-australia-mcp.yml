@@ -1,0 +1,23 @@
+type: MCPServer
+name: Virgin Australia MCP server
+generated: '2026-10-20'
+method: none
+status: absent
+source:
+  - https://www.virginaustralia.com/au/en/about-us/policies/legal/terms-of-use/chatgpt-app/
+description: >-
+  No Virgin Australia MCP server is published or documented. Virgin Australia offers an app inside
+  ChatGPT (terms of use fetched 2026-10-20, HTTP 200: "an AI enabled conversational flight shopping
+  and information tool made available by Virgin Australia through the ChatGPT platform"). ChatGPT
+  apps are built on MCP, but Virgin Australia publishes no MCP endpoint URL, no tool list and no
+  install package, so nothing here is callable by a third-party agent. No OpenAPI exists in this repo,
+  so no candidate tool list could be derived either. A web search for a Virgin Australia MCP server
+  (2026-10-20) returned nothing naming the airline.
+tools: []
+deployment:
+  mode: none
+  auth: unknown
+  verified: searched
+  note: >-
+    The ChatGPT app is reachable only from inside ChatGPT; its backing MCP endpoint is not
+    documented by Virgin Australia and was not guessed or probed.

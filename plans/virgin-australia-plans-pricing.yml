@@ -1,0 +1,15 @@
+generated: '2026-10-20'
+method: none
+name: Virgin Australia pricing
+audience: unclear
+pricing_basis: none
+published: false
+delivery:
+  delivery: unclear
+plan_count: 0
+note: >-
+  Checked, nothing there. Virgin Australia publishes no API product and therefore no API
+  plans or pricing. Its only partner surface is the Agency Hub, gated by the Travel Agent
+  Main Agreement (IATA/ATIS accreditation and approval at Virgin Australia's discretion);
+  airfares are consumer pricing, not API pricing, and are not recorded here.
+plans: []
