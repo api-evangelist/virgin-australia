@@ -1,0 +1,160 @@
+# Virgin Australia (virgin-australia)
+
+<!-- API-EVANGELIST-PROVENANCE:BEGIN -->
+> ### About this repository
+>
+> **This is not our API.** This repository is an independent, third-party profile of a company's
+> **publicly available** API surface, maintained by [API Evangelist](https://apievangelist.com).
+> API Evangelist does not operate, host, resell, or support this company's APIs, and is not
+> affiliated with or endorsed by the company unless stated on the profile.
+>
+> **Where the information came from.** Everything here is assembled from material a member of the
+> public can reach with a browser and no credentials — the company's own website, developer portal
+> and documentation, the specifications it publishes for public use (OpenAPI, AsyncAPI, JSON Schema,
+> `apis.json`, `llms.txt` and similar), its public repositories, and its public status, pricing and
+> changelog pages. **Nothing here is obtained by breaching a system, defeating an access control, or
+> using credentials of any kind.**
+>
+> **The rating is an independent assessment.** The Kin Score and Agent Readiness rating are
+> independently calculated scores of a company's *public* API artifacts, produced by API Evangelist
+> against a published rubric. They are not certifications, endorsements, security assessments, or
+> audits, and they score published artifacts — not the quality, safety, or security of the software.
+>
+> **Corrections, re-scores, and removal are free.** No partnership, contract, or purchase is
+> required, and you do not need to justify the request.
+>
+> - **Something wrong?** Open an issue on this repository, or email
+>   [info@apievangelist.com](mailto:info@apievangelist.com).
+> - **Published something new?** Ask for a re-score and we will re-run the rating.
+> - **Want the listing taken down?** Say so and we will honor it. The profile is reduced to your
+>   company name, a factual description, and a link to your own site, and the company is recorded as
+>   **unrated** — never scored zero for having asked.
+>
+> **Response times.** Acknowledgement within **one business day**; removal or restriction within
+> **two business days**; corrections and re-scores within **five business days**.
+>
+> **Not from the company, and here with a question?** You are welcome here — we would rather be the
+> front line and point you the right way than have a good report go nowhere. What this repository
+> can answer is narrow, though, so it is worth knowing who you are actually looking for:
+>
+> - **A question about how the API works, an account, billing, or a bug in the service** — that is
+>   the company's own support, not us. We profile this API; we do not operate it and cannot see
+>   your account.
+> - **A bug in an open-source project we only catalog** — file it on that project's own repository.
+>   This has happened with a real and correct bug report that reached us instead of the people who
+>   could fix it, which helped nobody.
+> - **Anything about this listing itself** — the description, the tags, the rating, a missing or
+>   wrong artifact — is ours. Open an issue here.
+> - **Not sure, or something general about API Evangelist or APIs.io** — open an issue on the
+>   [APIs.io Inbox](https://github.com/api-search/inbox) and we will route it.
+>
+> **This repository contains no software, and we will never ask you to download anything.** There is
+> no build, release, installer, or binary here — only text and machine-readable API descriptions, so
+> there is nothing here that can be "corrupt" or need "repairing". Any issue, comment, or email
+> claiming otherwise and offering a download link is not from us and is hostile. Do not follow the
+> link; it is a lure. Report it to GitHub and, if you like, tell us at
+> [info@apievangelist.com](mailto:info@apievangelist.com) so we can take it down.
+>
+> **On a security or compliance team?** Email
+> [info@apievangelist.com](mailto:info@apievangelist.com) with *security* in the subject line and
+> you will get a person, not a form. We will tell you exactly which public URLs this profile was
+> built from so your team can see the same surface we did, and we will take the listing down on
+> request while you work through it.
+>
+> Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
+<!-- API-EVANGELIST-PROVENANCE:END -->
+
+Virgin Australia (IATA code VA, ASX:VGN) is Australia's second-largest airline group, founded in 2000 and headquartered in Brisbane, operating a domestic and short-haul international network alongside charter and cargo services with more than 8,000 team members and the 13-million-member Velocity Frequent Flyer loyalty program. It sits on the airline side of a concentrated Australian duopoly with Qantas, and reaches travel agents and travel management companies almost entirely through GDS intermediation — Amadeus, Sabre and Travelport/Galileo — rather than through any direct machine interface of its own. Virgin Australia selected Sabre as its preferred NDC IT technology provider in October 2023 and renewed a multi-year Amadeus distribution agreement covering EDIFACT today and NDC in future, but as of July 2026 no Virgin Australia NDC endpoint, developer portal or API documentation is published anywhere on virginaustralia.com. Its API posture is honestly stated as none-published.
+
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/virgin-australia/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/virgin-australia/refs/heads/main/apis.yml)
+
+## Tags
+
+- Travel
+- Australia
+- Aviation
+- Airline
+- Distribution
+- GDS
+- NDC
+- Booking
+- Loyalty
+- Corporate Travel
+
+## Timestamps
+
+- **Created:** 2026-07-28
+- **Modified:** 2026-07-28
+
+## APIs
+
+None. Virgin Australia publishes no developer portal, no API reference, and no machine-readable API contract of any kind.
+
+Every candidate host and path was probed on 2026-07-28:
+
+| Surface | Status |
+| --- | --- |
+| `developer.virginaustralia.com` | DNS does not resolve |
+| `developers.virginaustralia.com` | DNS does not resolve |
+| `api.virginaustralia.com` | DNS does not resolve |
+| `apis.virginaustralia.com` | DNS does not resolve |
+| `docs.virginaustralia.com` | DNS does not resolve |
+| `portal.virginaustralia.com` | 200 — F5 BIG-IP corporate SSO gateway, not a developer portal |
+| `/developers`, `/api`, `/api-docs` | 404 |
+| `/openapi.json`, `/swagger.json` | 404 |
+| `/.well-known/security.txt`, `/.well-known/ai-plugin.json`, `/llms.txt` | 404 |
+| `github.com/virginaustralia` | 404 — no GitHub organization |
+
+The `robots.txt` and the fully enumerated AU sitemap contain zero developer or `/api` URLs.
+
+## Two Surfaces
+
+**Consumer surface** — no public API. Booking, check-in, flight status and Velocity loyalty run through virginaustralia.com, the mobile apps, and (since 10 June 2026, an Australian airline first) the Virgin Australia app in ChatGPT, which searches cash fares, Points + Pay and Velocity Reward Seats but by its own terms does "not process payments; create, amend or cancel bookings; confirm final pricing, fare availability or fare conditions; or make binding commitments." `velocityfrequentflyer.com/robots.txt` disallows `/api/*` and `/data/*`, confirming an internal-only, undocumented JSON surface.
+
+**Distribution surface** — GDS-intermediated. The actual integration contract with travel agents is GDS cryptic-entry syntax, published in the agent FAQ:
+
+- Amadeus — `OS VA VACC/insert company's ABN`
+- Galileo — `SI.VAA*VACC/insert company's ABN`
+- Sabre — `30SI VA VACC/insert company's ABN`
+- Plus: "Account code ACC99 must be included on every ticket to ensure accurate reporting."
+
+Three non-interchangeable dialects wrapping the same semantics. Duffel, which resells Virgin Australia, states plainly: "Currently, we access this airline's content through Travelport, a global distribution system designed for the travel industry."
+
+## NDC Posture
+
+Committed, not shipped. Sabre was named preferred NDC IT technology provider on 31 October 2023 to power a "future" NDC connection, and the Amadeus agreement covers agency content via EDIFACT "and, in the future, NDC channels." No Virgin Australia NDC endpoint, schema version, IATA NDC certification level or Airline Retailing Maturity index entry was found. No GDS or distribution surcharge is published — the OB Ticket Fee on 795 ticket stock is a card payment surcharge, not a channel fee.
+
+## What It Costs to Leave
+
+- **Interface shape:** proprietary-undocumented — nothing published to swap out, and nothing standard to swap in.
+- **Second source:** none. You can change GDS (Amadeus ↔ Sabre ↔ Travelport) but you cannot buy a Virgin Australia seat from anyone but Virgin Australia. Codeshare partners, Duffel and other aggregators are thinner wrappers over the same GDS dependency.
+- **Exit path:** no export published. Access and correction rights exist under the Privacy Act 1988 (Cth); a genuine portability right ("transfer your personal information to a third party in a portable format") is offered only to EEA and UK residents. No mechanism, format or endpoint for either.
+- **Identifiers:** portable ones (VA, VOZ, 795 plating code, IATA/ARC agency numbers, IATA airport codes, PNR record locators, BSP identifiers) sit alongside non-portable ones (the Virgin Australia Code, account code ACC99, the VACC OSI keyword, and Velocity membership numbers and Points — a closed-loop currency with no export route).
+- **Contract:** the Travel Agent Main Agreement requires "current IATA or ATIS accreditation" and states "You must have GDS access for BSP Sales" — the airline contractually *mandates* intermediation. Virgin Australia may refuse an account "in our absolute discretion," may run a third-party credit assessment, and may remove ticketing authority where "your Account is inactive or not utilised for at least 60 days." No exclusivity clause, full-content agreement, minimum volume or segment fee was found in the published agreement.
+- **Access gate:** accredited-or-licensed. There is no developer tier at all — an agent needs IATA/ATIS/ARC accreditation, a GDS PCC, a credit check, and discretionary approval.
+
+## The Seam
+
+In the Australian market the switching-cost story does not run through the airlines. Virgin Australia and Qantas are a duopoly on inventory nobody else can supply, and neither publishes an interface, so there is nothing to lock into beyond the seats. It runs through hospitality: SiteMinder, built in Sydney, publishes five documented integration APIs on OpenTravel schemas and occupies between hotels and every OTA exactly the position the GDS holds in aviation. The difference is that SiteMinder's lock-in is architectural and inspectable; Virgin Australia's is contractual and invisible.
+
+## Artifacts
+
+Because there is no specification to derive from, this repo carries only what could be
+probed or honestly generated. Each file records verified absence as data, with HTTP status.
+
+| Artifact | What it records |
+| --- | --- |
+| `well-known/virgin-australia-well-known.yml` | Every `/.well-known/` document (security.txt, openid-configuration, oauth-authorization-server, oauth-protected-resource, api-catalog, ai-plugin.json) plus `/llms.txt`, probed across all four reachable hosts on 2026-07-28. All 404. `trust.`, `security.`, `help.` and `status.virginaustralia.com` are NXDOMAIN. No `WellKnown` pointer is wired, because nothing is there. |
+| `conformance/virgin-australia-conformance.yml` | Standards posture. Virgin Australia *consumes* IATA EDIFACT, BSP and industry codes through the GDS; it *publishes* no interface standard. NDC is announced via Sabre, not shipped. OpenAPI, AsyncAPI, GraphQL, OAuth 2.0, OIDC, RFC 9457, RFC 9116 and RFC 9727 all absent. No compliance certification published, so no `Compliance` pointer. |
+| `security/virgin-australia-domain-security.yml` | TLS, HSTS, DNSSEC, CAA, SPF and DMARC for `www.virginaustralia.com`, `www.velocityfrequentflyer.com` and `api.velocityfrequentflyer.com`. Both domains: DMARC `p=reject`, SPF present, no DNSSEC, no CAA. `api.velocityfrequentflyer.com` serves TLS with HSTS but 404s everywhere. |
+| `llms/virgin-australia-llms.txt` | Generated (Virgin Australia's own `/llms.txt` is 404 on every host) so an agent reading this company gets the honest answer — no API — instead of hallucinating one. |
+
+Deliberately **not** created, because the underlying thing does not exist: `openapi/`, `asyncapi/`,
+`graphql/`, `packages/` (no first-party library on npm, PyPI or any registry; no GitHub org),
+`mcp/`, `skills/`, `scopes/`, `authentication/`, `errors/`, `overlays/`, `data-model/`,
+`sandbox/`, `cli/`, `components/`, `changelog/`, `lifecycle/`, `grpc/`,
+`security/virgin-australia-vulnerability-disclosure.yml` and `security/virgin-australia-trust-center.yml`.
+
+## Maintainers
+
+- Kin Lane — kin@apievangelist.com
